@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +11,87 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.museum-app {
+  background-color: #272727;
+  color: #F2EFEA;
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav {
+  background-color: #272727;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+}
+
+.nav-title {
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.nav-title:hover {
+  cursor: pointer;
+}
+
+.sand-box {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.collection {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 1;
+  border-color: #FE5F55;
+  border-style: groove;
+  border-radius: 4px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.collection-name {
+  display: flex;
+  font-size: 1.5rem;
+  order: 1;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+  flex-grow: 1;
+}
+
+.collection-exhibits {
+  display: flex;
+  flex-direction: row;
+  order: 2;
+  flex-grow: 4;
+  margin: 5px;
+  padding: 5px;
+}
+
+.exhibit {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #FE5F55;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.exhibit:hover {
+  filter: hue-rotate(30deg);
+  cursor: pointer;
 }

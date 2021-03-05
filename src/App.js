@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './Navbar';
+import SandBox from './Sandbox';
 
 function App() {
+  const [collections, setCollections] = useState({});
+  const [isFetching, setIsFetching] = useState(true);
+
+  useEffect(() => {
+    fetch('/collections').then(res => res.json()).then(data => {
+      setCollections(data.collections);
+      setIsFetching(false);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="museum-app">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');
+      </style>
+      <Navbar />
+      <SandBox collections={collections} isFetching={isFetching} />
     </div>
   );
 }
