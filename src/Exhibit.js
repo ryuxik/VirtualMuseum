@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Exhibit(props) {
+const Exhibit = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     function flipExhibit() {

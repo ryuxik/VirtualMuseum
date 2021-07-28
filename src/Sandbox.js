@@ -1,17 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Collection from './Collection';
 
-function SandBox(props) {
+const SandBox = (props) => {
+    const { collectionList, fetchingCollectionList } = props;
+
+    const [sandBoxState, setSandBoxState] = useState({
+        collectionLoaded: new Map(),
+        collectionResource: new Map(),
+    })
+
+    useEffect(() => {
+        const collectionResourceBaseUrl = '/collection/';
+        let isMounted = true;
+        collectionList.forEach((value) => {
+            let collectionResourceUrl = collectionResourceBaseUrl + value.id;
+            fetch(collectionResourceUrl)
+                .then(res => res.json())
+                .then(collection => {
+                    if (isMounted) {
+                        setSandBoxState((state) => {
+                            return {
+                                collectionLoaded: state.collectionLoaded.set(collection.id, true),
+                                collectionResource: state.collectionResource.set(collection.id, collection.exhibits)
+                            }
+                        });
+                    }
+                });
+        });
+        return () => { isMounted = false };
+    }, [setSandBoxState, collectionList]);
+
     return (
         <div className="sand-box">
-            {console.log(props.collections)}
-            {props.isFetching
-                ? ("loading...")
-                : (props.collections.map((collection) =>
+            { fetchingCollectionList
+                ? <div>Loading Collections</div>
+                : collectionList.map((collection) =>
                     <Collection
                         key={collection.id}
                         name={collection.name}
-                        exhibits={collection.exhibits} />))
+                        displayExhibits={true}
+                        exhibitsLoaded={sandBoxState.collectionLoaded.get(collection.id)}
+                        exhibits={sandBoxState.collectionResource.get(collection.id)} />)
             }
         </div>
     );

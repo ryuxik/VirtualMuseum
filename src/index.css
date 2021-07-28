@@ -21,17 +21,126 @@ code {
 }
 
 .nav {
-  background-color: #272727;
+  background-color:  #F2EFEA;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   width: 100vw;
-  height: 10vh;
+  height: 5vh;
+  align-items: center;
 }
 
-.nav-title {
-  font-size: 3rem;
+.nav-tab {
+  font-size: 2rem;
+  font-weight: 200;
+  padding: 0px 30px 0px 10px;
+  color: #272727;
+  text-decoration: none !important;
+  height: 100%;
+}
+
+.active-tab { 
+  color: #FE5F55;
+  box-shadow: 0px 2px #FE5F55;
+}
+
+.nav-tab:hover {
+  cursor: pointer;
+}
+
+#home-tab {
+  order: 1;
+  padding-right: 60px;
+  padding-left: 30px;
   font-weight: 100;
+}
+
+.home-container {
+  display: flex;
+  width: 100vw;
+  height: 95vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 40%;
+}
+
+.home-summary h1{
+  align-self: center;
+}
+
+.home-preview-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 40%;
+}
+
+.home-preview-card-container a {
+  text-decoration: none;
+  outline: none;
+}
+
+.preview-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #F2EFEA;
+  padding: 10px;
+  border-radius: 4px;;
+  height: 15vh;
+  width: 15vw;
+  margin: 20px;
+  align-items: center;
+}
+
+.preview-card:hover {
+  filter: brightness(70%);
+}
+
+.preview-card-cta {
+  color: #272727;
+  font-size: 1.2rem;
+  color: #FE5F55;
+  font-weight: 300;
+}
+
+#about-tab {
+  order: 5;
+}
+
+.about-container {
+  display: flex;
+  width: 100vw;
+  height: 95vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 40%;
+}
+
+#artists-tab {
+  order: 2
+}
+
+#auctions-tab {
+  order: 3
+}
+
+#collections-tab {
+  order: 4;
 }
 
 .nav-title:hover {
@@ -40,7 +149,7 @@ code {
 
 .sand-box {
   width: 100vw;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -76,6 +185,15 @@ code {
   flex-grow: 4;
   margin: 5px;
   padding: 5px;
+}
+
+.collection-denied {
+  display: flex;
+  justify-content: center;
+  flex-grow: 4;
+  margin: 5px;
+  padding: 5px;
+  order: 2;
 }
 
 .exhibit {
